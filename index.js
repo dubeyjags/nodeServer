@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
     res.send({
-        message: "Server is healthy 2",
+        message: "Server is healthy v2",
     });
 });
 
