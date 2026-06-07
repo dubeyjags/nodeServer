@@ -35,3 +35,32 @@ pwd
 whoami
 
 # cooonect with github
+git init
+npx gitignore node
+git commit -m "message"
+git remote add origin path
+git push
+
+
+# ubuntu
+ssh ubunto@ip
+pwd
+whoami
+sudo apt update
+git clone https://github.com/dubeyjags/nodeServer.git
+cd nodeserver
+install node by cmd from website for linux
+npm start to run the server
+npm start & to run the continues server
+
+## PM2 process manager 2
+npm install pm2 -g
+pm2 start index.js
+pm2 restart 0
+pm2 stop 0
+
+# server
+allow ssh from anywhere port 22 // for commiting and getting update
+add security for TCP protocol with 3000 port from anywhere
+
+
