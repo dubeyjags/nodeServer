@@ -1,4 +1,4 @@
-name: Deploy node with ExCloud
+name: Deploy node on ExCloud
 
 on:
   push:
