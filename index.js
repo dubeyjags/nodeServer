@@ -6,8 +6,8 @@ const PORT = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
     res.send({
-        message: "Server is healthy v4",
-        status: "Github actions"
+        message: "Server is healthy v5",
+        status: "Github actions completed"
     });
 });
 
