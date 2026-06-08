@@ -17,7 +17,7 @@ jobs:
         with:
           host: 210.79.128.197
           username: ubuntu
-          key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAv8D2J3gtv0v8goqsAjydt80mY9OdZR9sV2YU2SlSGQ server-dubeyjags@gmail.com
+          key: ${{secrets.PRIVATE_KEY}}
           port: 22
           script: |
             cd /home/ubuntu/nodeServer
