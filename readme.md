@@ -16,8 +16,8 @@ SSH - async encrpted to secure way to connect (secure shell) by using
     public key for server
 
 bash = 
-ssh-keygen -t ed25519 -C "server-dubeyjags@gmail.com"
-ssh-keygen -t rsa -b 4096 -C "dubeyjags@gmail.com"
+ssh-keygen -t ed25519 -C "github-dubeyjags@gmail.com"
+ssh-keygen -t rsa -b 4096 -C "ssh-dubeyjags@gmail.com"
 
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519

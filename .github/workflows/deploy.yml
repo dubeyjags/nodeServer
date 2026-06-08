@@ -12,18 +12,12 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v5
 
-      - name: Setup SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-
       - name: Deploy to ExCloud
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: 210.79.128.197
           username: ubuntu
-          key: ${{secrets.SSH_KEY}}
+          key: ${{ secrets.PRIVATE_KEY }}
           port: 22
           script: |
             cd /home/ubuntu/nodeServer
