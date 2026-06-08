@@ -16,7 +16,9 @@ SSH - async encrpted to secure way to connect (secure shell) by using
     public key for server
 
 bash = 
-ssh-keygen -t ed25519 -C "dubeyjags@gmail.com"
+ssh-keygen -t ed25519 -C "server-dubeyjags@gmail.com"
+ssh-keygen -t rsa -b 4096 -C "dubeyjags@gmail.com"
+
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 echo $SHELL
@@ -64,3 +66,50 @@ allow ssh from anywhere port 22 // for commiting and getting update
 add security for TCP protocol with 3000 port from anywhere
 
 
+# Automate the CICD 
+Github Actions
+Jenkins
+Aws cloud Build
+Circle CI
+travis
+GCP Cloud run
+
+## configrations
+Source
+event
+Steps
+
+
+## GITHUBACTIONS
+.github/workflows/deploy.yml
+```yml
+name: Deploy node with ExCloud
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Deploy to ExCloud
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: 210.79.128.197
+          username: ubuntu
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            cd /home/ubuntu/nodeServer
+            git pull
+            npm install
+            pm2 restart all
+```
+
+create another private-key at same folder
+save it at /home/server/.ssh (vim>:wq;)
