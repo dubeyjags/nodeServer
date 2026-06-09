@@ -113,3 +113,32 @@ jobs:
 
 create another private-key at same folder
 save it at /home/server/.ssh (vim>:wq;)
+and add the private key to the github/actions/secret&varibales // update variable in the yml
+
+## Docker
+Dockerfile   // create operating syetm with server code image also docker should run
+```Dockerfile
+FROM node:24-alpine
+
+COPY package*.json ./
+COPY index.js index.js
+
+RUN npm install
+
+CMD [ "node", "index.js" ]
+```
+docker build -t excloud . // tag image with name
+docker run -p 3000:3000 excloud // define port where to run
+docker image ls // check the image 
+hub.docker // like github
+  - create repo
+  - get the name
+  - docker build with repo name
+  - docker push with name
+  - verify on the hub.docker
+
+### add step at cicd pipeline for code commite create image
+
+
+
+
