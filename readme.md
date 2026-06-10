@@ -127,7 +127,7 @@ RUN npm install
 
 CMD [ "node", "index.js" ]
 ```
-docker build -t excloud . // tag image with name
+docker build -t excloud . // tag image with name (. means current folder)
 docker run -p 3000:3000 excloud // define port where to run
 docker image ls // check the image 
 hub.docker // like github
