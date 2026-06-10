@@ -32,7 +32,7 @@ jobs:
       - name: Deploy to ExCloud
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: 210.79.128.197
+          host: 210.79.128.114
           username: ubuntu
           key: ${{ secrets.PRIVATE_KEY }}
           port: 22
