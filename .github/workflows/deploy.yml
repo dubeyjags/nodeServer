@@ -26,8 +26,7 @@ jobs:
 
       - name: Docker Build & Push
         run: |
-          docker build -t dubeyjags/excloud .
-          docker push dubeyjags/excloud
+          docker buildx build --push -t dubeyjags/excloud .
 
       - name: Deploy to ExCloud
         uses: appleboy/ssh-action@v1.0.3
@@ -39,6 +38,6 @@ jobs:
           script: |
             sudo docker stop $(docker ps -q --filter ancestor=dubeyjags/excloud) 2>/dev/null || true
             sudo docker pull dubeyjags/excloud
-            sudo docker run -d -p 3000:3000 dubeyjags/excloud
+            sudo docker run -d -p 80:3000 dubeyjags/excloud
             sudo docker image prune -f
             sudo docker container prune -f

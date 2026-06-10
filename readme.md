@@ -167,6 +167,8 @@ sudo docker container ls -a (stop containers)
 sudo docker container rm id
 sudo docker container stop id
 
+## http works on port 80
+
 
 
 
