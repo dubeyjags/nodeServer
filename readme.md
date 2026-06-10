@@ -168,6 +168,11 @@ sudo docker container rm id
 sudo docker container stop id
 
 ## http works on port 80
+## SSL for caddy
+docker-compose.yml
+caddyfile
+update deply.xml
+
 
 
 

@@ -1,0 +1,17 @@
+services:
+  nodejs-server:
+    image: dubeyjags/excloud
+    deploy:
+      replicas: 5
+    networks:
+      - nodeServer-internal
+  caddy:
+    image: caddy:latest
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+    networks:
+      - nodeServer-internal
+
+networks:
+  nodeServer-internal:
+    driver: bridge

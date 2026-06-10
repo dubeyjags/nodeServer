@@ -36,8 +36,7 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: 22
           script: |
-            sudo docker stop $(docker ps -q --filter ancestor=dubeyjags/excloud) 2>/dev/null || true
-            sudo docker pull dubeyjags/excloud
-            sudo docker run -d -p 80:3000 dubeyjags/excloud
+            cd /home/ubuntu/nodeServer
+            git pull origin master
+            sudo docker compose up -d
             sudo docker image prune -f
-            sudo docker container prune -f
