@@ -37,9 +37,8 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: 22
           script: |
-            export NVM_DIR="$HOME/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-            cd /home/ubuntu/nodeServer
-            git pull
-            npm install
-            pm2 restart nodeServer || pm2 start index.js --name nodeServer
+            sudo docker stop $(docker ps -q --filter ancestor=dubeyjags/excloud) 2>/dev/null || true
+            sudo docker pull dubeyjags/excloud
+            sudo docker run -d -p 3000:3000 dubeyjags/excloud
+            sudo docker image prune -f
+            sudo docker container prune -f

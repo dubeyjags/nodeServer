@@ -138,6 +138,35 @@ hub.docker // like github
   - verify on the hub.docker
 
 ### add step at cicd pipeline for code commite create image
+update yml check for DOCKERHUB_USERNAME and DOCKERHUB_TOKEN in github actions  (DOCKERHUB_TOKEN = will hub.docker>account info> personal token)
+```
+- name: Login to Docker Hub
+        uses: docker/login-action@v4
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Docker Build & Push
+        run: |
+          docker build -t dubeyjags/excloud .
+          docker push dubeyjags/excloud
+```
+go to server and stop pm2
+insall docker with command (docker ubuntu install) all commands
+run `sudo docker run -p 3000:3000 dubeyjags/excloud`
+run `sudo docker run -d -p 3000:3000 dubeyjags/excloud` for background run
+
+sudo docker container ls
+sudo docker container ls -a (stop containers)
+sudo docker container rm id
+sudo docker container stop id
+
 
 
 
