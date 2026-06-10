@@ -42,4 +42,4 @@ jobs:
             cd /home/ubuntu/nodeServer
             git pull
             npm install
-            pm2 restart all
+            pm2 restart nodeServer || pm2 start index.js --name nodeServer
